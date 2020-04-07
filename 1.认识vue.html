@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>这是vuejs的例子发表并展示内容</h1>
+    <div id="vueApp">
+        <input type="text"  v-model="title"><br />
+        <textarea id="" cols="30" rows="10" v-model="content"></textarea><br />
+        <button onclick="postArticle()">发表</button>
+        <button v-on:click="ClickBtn">点我</button>
+        
+        <div id="articleList">
+            <div v-for="item in articleList">
+                <h3>{{item.title}}</h3>
+                <p>{{item.content}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#vueApp",
+            data:{
+                title:"",
+                content:"",
+                articleList:[]
+            },
+            methods:{
+                ClickBtn:function(){
+                    console.log("点击了我");
+                }
+            },
+            component:{
+                
+            }
+        });
+
+        function postArticle(){
+            vm.articleList.push({
+                title:vm.title,
+                content:vm.content
+                });
+        }
+    </script>
+</body>
+</html>
