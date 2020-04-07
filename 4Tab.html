@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vueApp">
+        <ul>
+            <li onclick="vm.index = 0">item1</li>
+            <li onclick="vm.index = 1">item2</li>
+            <li onclick="vm.index = 2">item3</li>
+        </ul>
+        <div v-show="index == 0">内容1</div>
+        <div v-show="index == 1">内容2</div>
+        <div v-show="index == 2">内容3</div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el:"#vueApp",
+            data:{
+                index:0
+            }
+        });
+    </script>
+</body>
+</html>
